@@ -1,38 +1,49 @@
 SERC — Two-Page Website Redesign Demonstration
+23 November 2026 | Content and navigation audit
 
-Start: open index.html in a modern browser.
-Pages:
-- index.html   — SERC Homepage (WORTH template layout maintained)
-- resources.html — Sexual Health Resources (WORTH program page layout maintained)
+START
+Open index.html in a modern browser with an internet connection.
+- index.html: Homepage
+- resources.html: Sexual Health Resources
 
-Brand: SERC colour palette inspired by the logo and current website; adapted higher-contrast digital variants. Original SERC wordmark from the supplied RFP, recoloured full-colour/white variant for dark footers. Final release requires checking official brand-kit SVGs.
+SCOPE & BRAND
+Both pages use the approved existing WORTH template structure adapted for SERC,
+with the same layout, colors, visual styling, font choices, animations and
+responsive behavior as in the preceding SERC prototype.
+SERC brand assets are derived from the provided RFP and must be confirmed
+against the official brand kit before production.
 
-Media: Relevant, free-use Pexels photos are loaded from images.pexels.com; hero background footage is sourced from videos.pexels.com. The layout and carousel imagery need internet access. Links to existing SERC services are intentionally external for sections outside this two-page demo; they must be migrated/verified for production.
+CONTENT REVIEW
+The Home page copy reflects the supplied RFP's mission and values: community,
+anti-oppression, learning, advocacy, and access (the last two share one card to
+preserve the original four-card section structure). The Resource page presents
+actual broad SERC topic categories including the basics, pregnancy and birth
+control, safer sex and STBBIs, relationships, caregivers, and TextEd.
 
-Interactions: Homepage hero carousel and featured-card rail work; Resources search, topic chips, sorting, card grid/list view and detail modal work. Day/night and accessibility icons are deliberately visual-only, as requested. Newsletter signup forms are demonstration-only with confirmation message; connect a provider before launch.
+INTERNAL-ONLY NAVIGATION
+No clickable link in either HTML page sends visitors to serc.mb.ca or the
+existing Teen Talk site. Primary navigation, dropdowns, buttons, homepage
+cards, and Resources card details route only to index.html/resources.html,
+relevant sections, resource details, or email contact (mailto:info@serc.mb.ca).
+Content that would normally require additional pages has been redirected to
+relevant prototype sections without inventing full registration/donation pages.
+Resources supports links to filtered categories and deep-linked card details.
 
-Assets directory contains ONLY the two SERC logos, SERC symbol favicon and SERC-inspired abstract ribbon/mask assets. Legacy WORTH logos, compunnel credit graphic and WORTH brush SVGs were removed.
+INTERACTIONS
+The homepage hero carousel and featured-card rail are retained.
+Resources searching, filtering, sorting, grid/list controls, details modal
+and copy-link behavior remain in the prototype.
+Day/night and accessibility icons remain intentionally display-only.
+Newsletter forms provide demonstration feedback only and do not subscribe users.
 
-This is a representative concept, not a medical advice or clinical service. WCAG 2.2 AA compliance, image licences, redirect mappings, content sign-off, responsive acceptance testing and integrations require final project validation.
+MEDIA & ASSETS
+Pexels photography and video are hot-linked from Pexels and need internet
+access. Images and video are not included in the ZIP. The /assets folder
+contains only the referenced SERC logo, watermark and decorative media.
 
-HOMEPAGE HERO CAROUSEL UPDATE (23 NOV 2026)
----------------------------------------
-Added a rounded image thumbnail inside the existing carousel caption card.
-The preview swaps with Resources / Workshops / Our impact using the existing
-automatic 6-second rotation and manual tabs. No page layout was restructured.
-Thumbnail photos use external Pexels URLs; online access is required.
-Day/night and accessibility icons remain visual only (nonfunctional).
-
-Update (23 November 2026):
-- Hero carousel photo is now a separate rounded rectangular image card immediately above the original white slide-caption card. It is not nested inside the white card.
-- All three carousel photo cards stay synchronized with the hero slides, caption, and selection tabs.
-- Display and large headings across Homepage and Resources now use bold Montserrat, a contemporary geometric sans style inspired by the SERC logo lettering. Body typography and page layout remain unchanged.
-- Day/night and accessibility icons remain display-only.
-
-Update (23 November 2026) — enlarged carousel image card:
-- Hero carousel photo card now spans the exact full width of the white carousel caption card below.
-- Increased height with desktop, tablet, and phone-specific sizing.
-- Removed its white border; applied a barely visible SERC teal/lime/orange/coral transparent gradient overlay on images.
-- Retained rounded corners, slight saturation improvement and soft depth shadow.
-- Switched photo URLs to higher-resolution 1400px Pexels versions for the larger display.
-- Existing hero carousel timing, captions, navigation, remaining page layout, logo-inspired headings, and Resources page are unchanged.
+IMPORTANT LIMITATIONS
+This is a two-page design demonstration, not an operational sexual-health
+service, resource library, donation, registration or medical-care website.
+Program availability, external service integrations, permitted image use,
+accessibility conformance (WCAG 2.2 AA), performance, full content migration,
+redirects and content sign-off must be confirmed before launch.
