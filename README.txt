@@ -47,3 +47,15 @@ service, resource library, donation, registration or medical-care website.
 Program availability, external service integrations, permitted image use,
 accessibility conformance (WCAG 2.2 AA), performance, full content migration,
 redirects and content sign-off must be confirmed before launch.
+
+HOMEPAGE HERO IMAGE FIX (23 November 2026)
+The old curved/brush-shaped slideshow and its image layers were removed from the
+homepage. The only foreground hero photo is now the single rounded rectangular
+carousel image above the white text panel. Resources, Workshops and Our Impact
+continue to rotate automatically and respond to the carousel tabs. The rest
+of the layout and the Resources page remain unchanged.
+
+GITHUB PAGES
+Commit index.html, resources.html and the assets/ folder into the published
+folder (normally the repository root). Keep the same relative file structure.
+Externally hosted images/video need network access to load on the live site.

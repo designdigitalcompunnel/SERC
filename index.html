@@ -636,6 +636,16 @@ header #mainNav > .nav-direct > a.nav-current::after{
  header #mainNav > .nav-direct > a.nav-current::after{left:12px;right:auto;width:72px;bottom:2px}
 }
 </style>
+
+<style id="serc-hero-single-image-fix">
+/* One hero media: remove the legacy WORTH/SERC brush slideshow, keep the round-corner carousel photo. */
+#hero .hero-carousel-stack{min-width:0;align-self:center;width:100%;}
+#hero .hero-carousel-stack .carousel-photo-wrap{width:100%;margin:0 0 16px!important;pointer-events:none;}
+#hero .hero-carousel-stack .carousel-photo-card{width:100%;border-radius:26px;overflow:hidden;}
+#hero .hero-carousel-stack .cap{margin-top:0;}
+@media(max-width:860px){#hero .hero-carousel-stack{margin-top:28px;}#hero .hero-carousel-stack .carousel-photo-wrap{margin-bottom:14px!important;}}
+@media(max-width:560px){#hero .hero-carousel-stack .carousel-photo-card{border-radius:20px;}#hero .hero-carousel-stack .carousel-photo-wrap{margin-bottom:12px!important;}}
+</style>
 </head><body>
 <div id="bar"></div><div id="cur"></div><div class="im" id="pv"></div>
 <header id="hd">
@@ -655,11 +665,7 @@ header #mainNav > .nav-direct > a.nav-current::after{
 <p class="lead fu" style="--d:3">SERC makes accurate, inclusive and judgment-free sexual health education easier to access. Explore information, workshops and community programs for every stage of life.</p>
 <div class="cta fu" style="--d:4"><a class="btn mag" href="resources.html">Explore Resources →</a><a class="gh" href="#about">About SERC</a></div>
 </div>
-<div class="fu" style="--d:2"><div class="lw"><div class="fr" data-p="-14" id="fr">
-<div class="sl im on"><img alt="Inclusive community learning group" decoding="async" loading="eager" src="https://images.pexels.com/photos/33714914/pexels-photo-33714914.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1450&amp;q=88"/></div>
-<div class="sl im"><img alt="Classroom facilitator supporting active discussion" decoding="async" loading="eager" src="https://images.pexels.com/photos/5905527/pexels-photo-5905527.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1450&amp;q=88"/></div>
-<div class="sl im"><img alt="Diverse community members attending a workshop" decoding="async" loading="eager" src="https://images.pexels.com/photos/33714896/pexels-photo-33714896.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1450&amp;q=88"/></div>
-</div></div>
+<div class="fu hero-carousel-stack" style="--d:2">
 <div class="carousel-photo-wrap"><div aria-hidden="true" class="carousel-photo-card"><img class="cap-media-slide on" alt="" decoding="async" loading="eager" src="https://images.pexels.com/photos/5537568/pexels-photo-5537568.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400&amp;q=88"/><img class="cap-media-slide" alt="" decoding="async" loading="eager" src="https://images.pexels.com/photos/32702845/pexels-photo-32702845.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400&amp;q=88"/><img class="cap-media-slide" alt="" decoding="async" loading="eager" src="https://images.pexels.com/photos/4260475/pexels-photo-4260475.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400&amp;q=88"/></div></div>
 <a class="cap" href="resources.html" id="cp"><div class="cap-copy"><small id="cs">Resources</small><b id="ct">Learn with confidence</b><span class="d" id="cd">Reliable sexual health information</span></div><span aria-hidden="true" class="ar">↗</span></a>
 <div class="tabs" id="tb"><button class="on" type="button">Resources</button><button type="button">Workshops</button><button type="button">Our impact</button></div></div></div>
@@ -723,23 +729,10 @@ document.querySelectorAll('.mag').forEach(b=>{b.onmousemove=e=>{const r=b.getBou
 $('#hero').addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;$('#hero').querySelectorAll('[data-p]').forEach(el=>{const d=+el.dataset.p;el.style.transform=`translate(${x*d}px,${y*d}px)`})});
 const words=['respect','confidence','understanding','choice'],rw=$('#rw');let wi=0;setInterval(()=>{wi=(wi+1)%words.length;rw.textContent=words[wi];rw.classList.remove('sw');void rw.offsetWidth;rw.classList.add('sw')},2800);
 const SL=[['Resources','Learn with confidence','Reliable sexual health information','resources.html'],['Workshops','Bring education to your community.','Youth, community & professional education','index.html#upcoming'],['Our impact','Health education for everyone','Community · Access · Informed choice','#legacy']];
-const slides=[...document.querySelectorAll('.sl')],tb=[...document.querySelectorAll('#tb button')],capPhotos=[...document.querySelectorAll('.cap-media-slide')];let si=0,tm;function go(i){si=i;slides.forEach((x,k)=>x.classList.toggle('on',k===i));capPhotos.forEach((x,k)=>x.classList.toggle('on',k===i));tb.forEach(x=>x.classList.remove('on'));tb[i].classList.add('on');const d=SL[i];$('#cs').textContent=d[0];$('#ct').textContent=d[1];$('#cd').textContent=d[2];$('#cp').href=d[3];clearInterval(tm);tm=setInterval(()=>go((si+1)%3),6000)}tb.forEach((b,i)=>b.onclick=()=>go(i));go(0);
-// Hero image fallback: keep photography visible even when a Pexels link is unavailable.
-// Each slide uses a distinct, relevant alternative Pexels photo.
-const heroPhotoFallbacks=[['https://images.pexels.com/photos/5537985/pexels-photo-5537985.jpeg?auto=compress&cs=tinysrgb&w=1450&q=88'],['https://images.pexels.com/photos/6147170/pexels-photo-6147170.jpeg?auto=compress&cs=tinysrgb&w=1450&q=88'],['https://images.pexels.com/photos/6147076/pexels-photo-6147076.jpeg?auto=compress&cs=tinysrgb&w=1450&q=88']];
-slides.forEach((slide,i)=>{
-  const img=slide.querySelector('img');
-  if(!img)return;
-  let alternate=0;
-  img.loading='eager';
-  const tryNextHeroPhoto=()=>{
-    if(alternate<heroPhotoFallbacks[i].length){img.src=heroPhotoFallbacks[i][alternate++];}
-    else{img.style.display='none';slide.style.background='transparent';}
-  };
-  img.addEventListener('error',tryNextHeroPhoto);
-  // Handle image errors that occurred before the footer script executed.
-  if(img.complete && img.naturalWidth===0) tryNextHeroPhoto();
-});
+const tb=[...document.querySelectorAll('#tb button')],capPhotos=[...document.querySelectorAll('.cap-media-slide')];let si=0,tm;function go(i){si=i;capPhotos.forEach((x,k)=>x.classList.toggle('on',k===i));tb.forEach(x=>x.classList.remove('on'));tb[i].classList.add('on');const d=SL[i];$('#cs').textContent=d[0];$('#ct').textContent=d[1];$('#cd').textContent=d[2];$('#cp').href=d[3];clearInterval(tm);tm=setInterval(()=>go((si+1)%3),6000)}tb.forEach((b,i)=>b.onclick=()=>go(i));go(0);
+// The three hero carousel photos use the single rounded media card above the caption.
+// A brand-colour gradient remains visible if externally hosted Pexels photos cannot load.
+capPhotos.forEach(img=>{const hideBroken=()=>{img.style.display='none'};img.addEventListener('error',hideBroken,{once:true});if(img.complete&&img.naturalWidth===0)hideBroken()});
 // Theme icon is intentionally display-only; site is always light.
 const eventRail=$('#rail'),railPrev=$('#railPrev'),railNext=$('#railNext');
 if(eventRail&&railPrev&&railNext){
@@ -751,5 +744,5 @@ const menu=$('#menuToggle'),nav=$('#mainNav');menu.onclick=()=>{const open=nav.c
 // Accessibility icon is intentionally display-only for this concept.
 $('#newsletterForm').addEventListener('submit',e=>{e.preventDefault();$('#newsletterMessage').textContent='Demo only — connect this form to SERC’s newsletter provider before launch.';e.currentTarget.reset()});
 const mqMark='<em class="mq-mark" aria-hidden="true"><span></span><span></span></em>';const mqContent='<span>EDUCATION · ACCESS · CHOICE</span>'+mqMark+'<span>SEXUAL HEALTH FOR EVERYONE</span>'+mqMark+'<span>COMMUNITY · LEARNING · ADVOCACY</span>'+mqMark+'<span>MANITOBA · SERC</span>'+mqMark;$('#mq').innerHTML=mqContent.repeat(4);
-document.querySelectorAll('img').forEach(img=>{if(img.closest('#fr'))return;img.addEventListener('error',()=>{img.style.display='none';if(img.parentElement)img.parentElement.style.background='linear-gradient(135deg,#53B7C8,#D9472E)'},{once:true})});
+document.querySelectorAll('img').forEach(img=>{img.addEventListener('error',()=>{img.style.display='none';if(img.parentElement)img.parentElement.style.background='linear-gradient(135deg,#53B7C8,#D9472E)'},{once:true})});
 </script></body></html>
